@@ -46,7 +46,7 @@ if __name__ == '__main__':
                   menu = str(input())
 
                   if menu == '0': #戻る
-                     print("Felicaカードをタッチしてください．")
+                     print("戻ります")
 
                   elif menu == '1': #入金
                      print('金額を入力してください')
@@ -56,13 +56,11 @@ if __name__ == '__main__':
                      cur.execute('SELECT zandaka FROM user WHERE idm =\''+str(idm_No)+'\';')
                      zandakalist=cur.fetchone()
                      print('残高は {} 円です．'.format(zandakalist[0]))
-                     print("Felicaカードをタッチしてください．")
 
                   elif menu == '2': #残高確認
                      cur.execute('SELECT zandaka FROM user WHERE idm =\''+str(idm_No)+'\';')
                      zandakalist=cur.fetchone()
                      print('残高は {} 円です．'.format(zandakalist[0]))
-                     print("Felicaカードをタッチしてください．")
 
                   elif menu == '3': #商品購入
                      cur.execute('SELECT * FROM shohin;')
@@ -93,8 +91,6 @@ if __name__ == '__main__':
                         print('お買い上げありがとうございます．')
                      elif select_shohinlist == None:
                         print('入力された商品コードはデータベースに登録されていません．')
-
-                     print("Felicaカードをタッチしてください")
 
                   elif menu == '4': #新規カード登録
                      print("登録したいFelicaカードをタッチしてください．")
@@ -128,6 +124,8 @@ if __name__ == '__main__':
                            if len(userlist) != 0:
                               print('このFelicaカードは登録済みです．')
                               break
+                  print("Felicaカードをタッチしてください")
+
 
     except KeyboardInterrupt:
        print('finished')
